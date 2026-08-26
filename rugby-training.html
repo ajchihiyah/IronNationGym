@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rugby Training Regiments | Iron Nation Gym — Harare, Zimbabwe</title>
+<meta name="description" content="Elite rugby strength & conditioning programs at Iron Nation Gym. Position-specific training for forwards and backs, led by Coach Ray Daniels, S&C Coach for Zimbabwe U17 & U20 Rugby.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --iron-red: #E63946;
+  --iron-red-dark: #C1121F;
+  --iron-red-light: #FF6B6B;
+  --iron-dark: #0a0a0a;
+  --iron-gray: #111111;
+  --iron-gray-light: #1a1a1a;
+  --iron-surface: #141414;
+  --iron-border: #2a2a2a;
+  --iron-text: #f5f5f5;
+  --iron-text-secondary: #a0a0a0;
+  --iron-text-muted: #666666;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  color: var(--iron-text);
+  background: var(--iron-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+button, input, select, textarea { font: inherit; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--iron-border);
+  transition: all 0.3s ease;
+}
+.nav.scrolled { background: rgba(10,10,10,0.98); }
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; height: 72px;
+}
+.logo {
+  font-size: 22px; font-weight: 800; letter-spacing: 1.5px;
+  display: flex; align-items: center; gap: 10px; text-transform: uppercase;
+}
+.logo-mark {
+  width: 36px; height: 36px; background: var(--iron-red);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 900; font-size: 13px;
+}
+.nav-links {
+  display: flex; gap: 36px; align-items: center;
+}
+.nav-link {
+  font-size: 13px; font-weight: 500; color: var(--iron-text-secondary);
+  transition: color 0.2s ease; cursor: pointer;
+  text-transform: uppercase; letter-spacing: 1px;
+  position: relative;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--iron-red); transition: width 0.3s ease;
+}
+.nav-link:hover { color: var(--iron-text); }
+.nav-link:hover::after { width: 100%; }
+.nav-link.active { color: var(--iron-red); }
+.nav-link.active::after { width: 100%; }
+.nav-cta {
+  background: var(--iron-red); color: white; border: none;
+  padding: 10px 24px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.nav-cta:hover { background: var(--iron-red-dark); transform: translateY(-1px); }
+.mobile-menu-btn {
+  display: none; background: none; border: none; color: var(--iron-text);
+  cursor: pointer; padding: 4px;
+}
+.mobile-menu {
+  display: none; position: absolute; top: 72px; left: 0; right: 0;
+  background: var(--iron-dark); border-bottom: 1px solid var(--iron-border);
+  padding: 20px 32px; flex-direction: column; gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu .nav-link {
+  padding: 14px 0; border-bottom: 1px solid var(--iron-border); font-size: 14px;
+}
+.mobile-menu .nav-link:last-of-type { border-bottom: none; }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: var(--iron-red); color: white; border: none;
+  padding: 14px 32px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease;
+  text-transform: uppercase; letter-spacing: 1px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-primary:hover { background: var(--iron-red-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(230,57,70,0.3); }
+.btn-secondary {
+  background: transparent; color: var(--iron-text); border: 1.5px solid var(--iron-border);
+  padding: 14px 32px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.btn-secondary:hover { border-color: var(--iron-text); background: rgba(255,255,255,0.03); }
+.btn-outline {
+  background: transparent; color: var(--iron-text); border: 1.5px solid var(--iron-border);
+  padding: 12px 24px; border-radius: 6px; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s ease; width: 100%;
+}
+.btn-outline:hover { border-color: var(--iron-red); color: var(--iron-red); }
+
+/* ===== HERO WITH IMAGE ===== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding-top: 72px; position: relative; overflow: hidden;
+}
+.hero-img-bg {
+  position: absolute; inset: 0;
+  background: url('images/5_Turning_Point_For_Rugby_In_Zimbabwe.png') center center / cover no-repeat;
+}
+.hero-img-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.85) 60%, var(--iron-dark) 100%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  z-index: 1;
+}
+.hero-inner { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.hero-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 3px;
+  color: var(--iron-red); margin-bottom: 28px; font-weight: 600;
+}
+.hero-label::before {
+  content: ''; width: 32px; height: 2px; background: var(--iron-red);
+}
+.hero-title {
+  font-size: clamp(42px, 7vw, 80px); font-weight: 800; line-height: 1.05;
+  letter-spacing: -2px; margin-bottom: 28px; max-width: 900px;
+}
+.hero-title span { color: var(--iron-red); }
+.hero-desc {
+  font-size: 18px; color: var(--iron-text-secondary); line-height: 1.7;
+  max-width: 640px; margin-bottom: 44px; font-weight: 400;
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1280px; margin: 0 auto; padding: 100px 32px;
+}
+.section-alt {
+  background: var(--iron-gray);
+  border-top: 1px solid var(--iron-border);
+  border-bottom: 1px solid var(--iron-border);
+}
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-label {
+  font-size: 12px; color: var(--iron-red); text-transform: uppercase;
+  letter-spacing: 3px; font-weight: 600; margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.1;
+  margin-bottom: 16px; letter-spacing: -1px;
+}
+.section-subtitle {
+  font-size: 17px; color: var(--iron-text-secondary); line-height: 1.7;
+  max-width: 640px; margin: 0 auto;
+}
+
+/* ===== FULL-WIDTH IMAGE SECTIONS (Provita Style) ===== */
+.fw-section {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.fw-section-bg {
+  position: absolute; inset: 0;
+}
+.fw-section-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.fw-section-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.4) 100%);
+}
+.fw-section-content {
+  position: relative; z-index: 2;
+  max-width: 1280px; margin: 0 auto;
+  padding: 80px 32px;
+  width: 100%;
+}
+.fw-section-content h2 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  max-width: 700px;
+}
+.fw-section-content h2 span { color: var(--iron-red); }
+.fw-section-content p {
+  font-size: 17px;
+  color: var(--iron-text-secondary);
+  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+.fw-section-content .btn-primary { margin-top: 8px; }
+
+/* ===== TRAINING BLOCKS ===== */
+.blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.block-card {
+  background: var(--iron-gray-light);
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid var(--iron-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.block-card:hover {
+  border-color: var(--iron-red);
+  transform: translateY(-4px);
+}
+.block-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--iron-red);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.block-card:hover::before { opacity: 1; }
+.block-icon {
+  width: 56px; height: 56px; border-radius: 12px;
+  background: rgba(230,57,70,0.1); display: flex; align-items: center; justify-content: center;
+  color: var(--iron-red); margin-bottom: 24px;
+}
+.block-icon svg { width: 26px; height: 26px; }
+.block-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+.block-card p { font-size: 15px; color: var(--iron-text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.block-list { display: flex; flex-direction: column; gap: 10px; }
+.block-list-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--iron-text-secondary);
+}
+.block-list-item svg { width: 18px; height: 18px; color: var(--iron-red); flex-shrink: 0; margin-top: 2px; }
+
+/* ===== POSITION TABS ===== */
+.position-tabs { display: flex; gap: 8px; margin-bottom: 48px; flex-wrap: wrap; justify-content: center; }
+.position-tab {
+  padding: 14px 32px; border-radius: 8px; border: 1px solid var(--iron-border);
+  background: transparent; color: var(--iron-text-secondary);
+  font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.position-tab:hover { color: var(--iron-text); border-color: var(--iron-text-muted); }
+.position-tab.active { background: var(--iron-red); color: white; border-color: var(--iron-red); }
+.position-panel { display: none; animation: fadeInUp 0.5s ease; }
+.position-panel.active { display: block; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.position-content { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.position-visual {
+  border-radius: 16px; aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  border: 1px solid var(--iron-border);
+}
+.position-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.position-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);
+}
+.position-details h3 { font-size: 32px; font-weight: 800; margin-bottom: 20px; }
+.position-details h3 span { color: var(--iron-red); }
+.position-details p { font-size: 16px; color: var(--iron-text-secondary); line-height: 1.8; margin-bottom: 24px; }
+.position-details .focus-areas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.focus-area {
+  background: var(--iron-surface);
+  border: 1px solid var(--iron-border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.focus-area h4 {
+  font-size: 13px;
+  color: var(--iron-red);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.focus-area p {
+  font-size: 14px;
+  color: var(--iron-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== WEEKLY SCHEDULE ===== */
+.schedule-wrapper {
+  background: var(--iron-gray-light);
+  border-radius: 20px;
+  border: 1px solid var(--iron-border);
+  overflow: hidden;
+}
+.schedule-header {
+  display: grid;
+  grid-template-columns: 140px repeat(6, 1fr);
+  background: var(--iron-surface);
+  border-bottom: 1px solid var(--iron-border);
+}
+.schedule-header-cell {
+  padding: 16px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--iron-text-muted);
+  text-align: center;
+  border-right: 1px solid var(--iron-border);
+}
+.schedule-header-cell:first-child {
+  text-align: left;
+  padding-left: 24px;
+  color: var(--iron-red);
+}
+.schedule-header-cell:last-child { border-right: none; }
+.schedule-row {
+  display: grid;
+  grid-template-columns: 140px repeat(6, 1fr);
+  border-bottom: 1px solid var(--iron-border);
+}
+.schedule-row:last-child { border-bottom: none; }
+.schedule-time {
+  padding: 20px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--iron-text);
+  border-right: 1px solid var(--iron-border);
+  display: flex;
+  align-items: center;
+}
+.schedule-cell {
+  padding: 16px 12px;
+  border-right: 1px solid var(--iron-border);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 80px;
+}
+.schedule-cell:last-child { border-right: none; }
+.schedule-cell.empty { background: rgba(0,0,0,0.15); }
+.schedule-cell.strength { background: rgba(230,57,70,0.08); }
+.schedule-cell.conditioning { background: rgba(230,57,70,0.04); }
+.schedule-cell.recovery { background: rgba(50,200,100,0.04); }
+.schedule-cell.skill { background: rgba(100,150,255,0.04); }
+.cell-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.cell-label.strength { color: var(--iron-red); }
+.cell-label.conditioning { color: #ff8c42; }
+.cell-label.recovery { color: #4ade80; }
+.cell-label.skill { color: #60a5fa; }
+.cell-desc {
+  font-size: 11px;
+  color: var(--iron-text-muted);
+}
+
+/* ===== SEASONAL TIMELINE ===== */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--iron-border);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item:nth-child(even) .timeline-content { grid-column: 2; }
+.timeline-item:nth-child(even) .timeline-meta { grid-column: 1; grid-row: 1; text-align: right; }
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--iron-red);
+  border: 3px solid var(--iron-dark);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.timeline-dot.active {
+  box-shadow: 0 0 0 4px rgba(230,57,70,0.2);
+}
+.timeline-content {
+  background: var(--iron-gray-light);
+  border: 1px solid var(--iron-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+.timeline-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.timeline-content p {
+  font-size: 15px;
+  color: var(--iron-text-secondary);
+  line-height: 1.7;
+}
+.timeline-meta {
+  padding-top: 4px;
+}
+.timeline-meta .phase-label {
+  font-size: 12px;
+  color: var(--iron-red);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.timeline-meta .phase-duration {
+  font-size: 14px;
+  color: var(--iron-text-muted);
+}
+
+/* ===== RECOVERY PROTOCOLS ===== */
+.recovery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.recovery-card {
+  background: var(--iron-gray-light);
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid var(--iron-border);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.recovery-card:hover {
+  border-color: var(--iron-red);
+  transform: translateY(-4px);
+}
+.recovery-card .recovery-num {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--iron-red);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.recovery-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.recovery-card p {
+  font-size: 14px;
+  color: var(--iron-text-secondary);
+  line-height: 1.6;
+}
+
+/* ===== GALLERY ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--iron-border);
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 2; }
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top: 1px solid var(--iron-border);
+  border-bottom: 1px solid var(--iron-border);
+}
+.cta-bg {
+  position: absolute; inset: 0;
+}
+.cta-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.cta-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(10,10,10,0.85);
+}
+.cta-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 100px 32px;
+  max-width: 800px;
+}
+.cta-content h2 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+.cta-content h2 span { color: var(--iron-red); }
+.cta-content p {
+  font-size: 18px;
+  color: var(--iron-text-secondary);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  border-top: 1px solid var(--iron-border); padding: 80px 32px 32px;
+}
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 56px; margin-bottom: 56px; }
+.footer-brand .logo { margin-bottom: 20px; }
+.footer-brand p { font-size: 14px; color: var(--iron-text-secondary); line-height: 1.7; margin-top: 16px; max-width: 300px; }
+.footer-brand .footer-contact { margin-top: 20px; }
+.footer-brand .footer-contact div { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--iron-text-secondary); margin-bottom: 10px; }
+.footer-brand .footer-contact svg { width: 16px; height: 16px; color: var(--iron-red); flex-shrink: 0; }
+.footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; color: var(--iron-text); font-weight: 700; }
+.footer-col a { display: block; font-size: 14px; color: var(--iron-text-secondary); margin-bottom: 14px; transition: color 0.2s; cursor: pointer; }
+.footer-col a:hover { color: var(--iron-text); }
+.footer-newsletter { display: flex; gap: 8px; margin-top: 16px; }
+.footer-newsletter input {
+  flex: 1; background: var(--iron-gray-light); border: 1px solid var(--iron-border);
+  border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--iron-text);
+  outline: none; transition: border-color 0.2s;
+}
+.footer-newsletter input:focus { border-color: var(--iron-red); }
+.footer-newsletter input::placeholder { color: var(--iron-text-muted); }
+.footer-newsletter button {
+  background: var(--iron-red); color: white; border: none; border-radius: 8px;
+  padding: 12px 20px; font-size: 12px; font-weight: 600; cursor: pointer;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.footer-newsletter button:hover { background: var(--iron-red-dark); }
+.footer-bottom {
+  border-top: 1px solid var(--iron-border); padding-top: 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: var(--iron-text-muted);
+}
+.footer-social { display: flex; gap: 16px; }
+.footer-social a {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--iron-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--iron-text-secondary); transition: all 0.2s ease;
+}
+.footer-social a:hover { border-color: var(--iron-red); color: var(--iron-red); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .blocks-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .position-content { grid-template-columns: 1fr; gap: 48px; }
+  .position-details .focus-areas { grid-template-columns: 1fr; }
+  .recovery-grid { grid-template-columns: 1fr 1fr; }
+  .schedule-header, .schedule-row { grid-template-columns: 100px repeat(6, 1fr); }
+  .schedule-header-cell, .schedule-cell { padding: 10px 6px; font-size: 10px; }
+  .schedule-time { padding: 14px 12px; font-size: 11px; }
+  .timeline::before { left: 20px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 16px; padding-left: 48px; }
+  .timeline-item:nth-child(even) .timeline-content { grid-column: 1; }
+  .timeline-item:nth-child(even) .timeline-meta { grid-column: 1; grid-row: 1; text-align: left; }
+  .timeline-dot { left: 20px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .fw-section-content h2 { max-width: 100%; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+}
+@media (max-width: 640px) {
+  .section { padding: 64px 20px; }
+  .hero-title { font-size: 36px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .recovery-grid { grid-template-columns: 1fr; }
+  .schedule-header, .schedule-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .schedule-header-cell, .schedule-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--iron-border);
+    text-align: left;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: auto;
+    padding: 12px 16px;
+  }
+  .schedule-time {
+    border-right: none;
+    border-bottom: 1px solid var(--iron-border);
+    background: var(--iron-surface);
+  }
+  .timeline { padding-left: 0; }
+  .timeline-item { padding-left: 40px; }
+  .fw-section { min-height: 500px; }
+  .fw-section-content { padding: 60px 20px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1) { grid-column: span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG Icons -->
+<svg style="display:none">
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none"><path d="M19.3027 5.9053C19.6542 5.55397 20.2247 5.55388 20.5761 5.9053C20.9273 6.25675 20.9273 6.82734 20.5761 7.17874L9.65911 18.0948C9.30773 18.4461 8.73814 18.446 8.38665 18.0948L3.42376 13.1328C3.0726 12.7814 3.07263 12.2118 3.42376 11.8604C3.77524 11.509 4.34575 11.5089 4.6972 11.8604L9.02239 16.1856L19.3027 5.9053Z" fill="currentColor"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.4387 12.814C21.788 12.4622 21.787 11.8941 21.4364 11.5436L15.8979 6.0051C15.5464 5.65363 14.9766 5.65363 14.6251 6.0051C14.2737 6.35657 14.2737 6.92642 14.6251 7.27789L18.6272 11.28H2.79998C2.30293 11.28 1.89998 11.6829 1.89998 12.18C1.89998 12.677 2.30293 13.08 2.79998 13.08H18.6382L14.6228 17.1245C14.2726 17.4772 14.2747 18.0471 14.6274 18.3973C14.9802 18.7475 15.55 18.7454 15.9002 18.3927L21.4387 12.814Z" fill="currentColor"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none"><path d="M17.9542 4.77253C18.3056 4.42106 18.8761 4.42106 19.2276 4.77253C19.579 5.12401 19.579 5.69452 19.2276 6.04597L13.2735 12.0001L19.2276 17.9542C19.5791 18.3056 19.5791 18.8761 19.2276 19.2276C18.8761 19.5791 18.3056 19.5791 17.9542 19.2276L12.0001 13.2735L6.04595 19.2276C5.69451 19.5791 5.12399 19.579 4.77252 19.2276C4.42104 18.8761 4.42104 18.3056 4.77252 17.9542L10.7266 12.0001L4.77252 6.04597C4.42104 5.6945 4.42104 5.124 4.77252 4.77253C5.12399 4.42107 5.69448 4.42106 6.04595 4.77253L12.0001 10.7266L17.9542 4.77253Z" fill="currentColor"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="currentColor"/></symbol>
+  <symbol id="icon-doc" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24" fill="none"><path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zm-7 12h14v-2c0-2.761-2.239-5-5-5H10c-2.761 0-5 2.239-5 5v2zm2-2c0-1.657 1.343-3 3-3h4c1.657 0 3 1.343 3 3H7z" fill="currentColor"/></symbol>
+  <symbol id="icon-dumbbell" viewBox="0 0 24 24" fill="none"><path d="M6 5h12v2H6V5zm0 4h10v2H6V9zm0 4h8v2H6v-2zm12 0h-2v6h2v-6zm-4 2h-2v4h2v-4zm8 0h-2v4h2v-4z" fill="currentColor"/><path d="M2 2h20v20H2V2zm2 2v16h16V4H4z" fill="currentColor"/></symbol>
+  <symbol id="icon-gym" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/><path d="M12 6a6 6 0 100 12 6 6 0 000-12zm0 10a4 4 0 110-8 4 4 0 010 8z" fill="currentColor"/></symbol>
+  <symbol id="icon-location" viewBox="0 0 24 24" fill="none"><path d="M18.9003 10.7998C18.9002 7.08572 16.2547 3.90039 11.9999 3.90039C7.74237 3.90047 5.10056 7.05052 5.10046 10.7998C5.10046 13.0829 6.29178 15.183 7.80359 16.916C9.30556 18.6377 11.0351 19.8955 11.91 20.4775C11.9433 20.4997 11.9743 20.5068 11.9999 20.5068C12.0255 20.5068 12.0564 20.4997 12.0897 20.4775C12.9646 19.8955 14.695 18.638 16.1971 16.916C17.7089 15.183 18.9003 13.0828 18.9003 10.7998ZM14.1005 10.7998C14.1004 9.6401 13.1596 8.7002 11.9999 8.7002C10.8402 8.70027 9.90037 9.64014 9.90027 10.7998C9.90027 11.9596 10.8401 12.9003 11.9999 12.9004C13.1597 12.9004 14.1005 11.9596 14.1005 10.7998ZM15.9003 10.7998C15.9003 12.9537 14.1538 14.7002 11.9999 14.7002C9.84603 14.7001 8.10046 12.9537 8.10046 10.7998C8.10057 8.64603 9.8461 6.90047 11.9999 6.90039C14.1537 6.90039 15.9002 8.64598 15.9003 10.7998ZM20.7001 10.7998C20.7001 13.7092 19.1938 16.2194 17.5536 18.0996C15.9039 19.9907 14.0277 21.3497 13.0868 21.9756C12.4242 22.4163 11.5765 22.4163 10.9139 21.9756C9.9732 21.3498 8.09699 19.9908 6.44714 18.0996C4.8069 16.2194 3.29968 13.7092 3.29968 10.7998C3.29978 6.14935 6.65779 2.09969 11.9999 2.09961C17.3448 2.09961 20.7 6.19035 20.7001 10.7998Z" fill="currentColor"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/></symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24" fill="none"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/></symbol>
+  <symbol id="icon-twitter" viewBox="0 0 24 24" fill="none"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" fill="currentColor"/></symbol>
+  <symbol id="icon-lightning" viewBox="0 0 24 24" fill="none"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z" fill="currentColor"/></symbol>
+  <symbol id="icon-heart" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/></symbol>
+  <symbol id="icon-target" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2V7zm0 8h2v2h-2v-2z" fill="currentColor"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" fill="currentColor"/></symbol>
+  <symbol id="icon-trophy" viewBox="0 0 24 24" fill="none"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 003.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" fill="currentColor"/></symbol>
+  <symbol id="icon-rugby" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/></symbol>
+  <symbol id="icon-run" viewBox="0 0 24 24" fill="none"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z" fill="currentColor"/></symbol>
+  <symbol id="icon-flame" viewBox="0 0 24 24" fill="none"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z" fill="currentColor"/></symbol>
+  <symbol id="icon-refresh" viewBox="0 0 24 24" fill="none"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" fill="currentColor"/></symbol>
+  <symbol id="icon-zap" viewBox="0 0 24 24" fill="none"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z" fill="currentColor"/></symbol>
+</svg>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">IN</div>
+      <span>Iron Nation</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="index.html#about">About</a>
+      <a class="nav-link" href="index.html#services">Services</a>
+      <a class="nav-link active" href="rugby-training.html">Rugby S&C</a>
+      <a class="nav-link" href="index.html#coach">Coach</a>
+      <a class="nav-link" href="index.html#membership">Membership</a>
+      <a class="nav-link" href="index.html#contact">Contact</a>
+      <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Join Now</button>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+      <svg width="24" height="24"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a class="nav-link" href="index.html" onclick="toggleMobileMenu()">Home</a>
+    <a class="nav-link" href="index.html#about" onclick="toggleMobileMenu()">About</a>
+    <a class="nav-link" href="index.html#services" onclick="toggleMobileMenu()">Services</a>
+    <a class="nav-link active" href="rugby-training.html" onclick="toggleMobileMenu()">Rugby S&C</a>
+    <a class="nav-link" href="index.html#coach" onclick="toggleMobileMenu()">Coach</a>
+    <a class="nav-link" href="index.html#membership" onclick="toggleMobileMenu()">Membership</a>
+    <a class="nav-link" href="index.html#contact" onclick="toggleMobileMenu()">Contact</a>
+    <button class="nav-cta" style="width:100%;margin-top:12px" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'}); toggleMobileMenu()">Join Now</button>
+  </div>
+</nav>
+
+<!-- ===== HERO WITH SABLES IMAGE ===== -->
+<section class="hero" id="hero">
+  <div class="hero-img-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-label">Elite Rugby Strength & Conditioning</div>
+    <h1 class="hero-title">Train Like a <span>Sable.</span><br>Dominate the <span>Pitch.</span></h1>
+    <p class="hero-desc">Zimbabwe's only rugby-specific strength and conditioning program. Designed by Coach Ray Daniels for the demands of the modern game — from grassroots development to elite international competition.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('blocks').scrollIntoView({behavior:'smooth'})">
+        View Programs
+        <svg width="18" height="18"><use href="#icon-arrow"/></svg>
+      </button>
+      <button class="btn-secondary" onclick="document.getElementById('schedule').scrollIntoView({behavior:'smooth'})">Weekly Schedule</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FULL-WIDTH INTRO WITH SABLES SQUAD ===== -->
+<section class="fw-section" id="intro">
+  <div class="fw-section-bg">
+    <img src="images/1_Sables_Name_26_Man_Squad_for_Blue.png" alt="Zimbabwe Sables Squad">
+  </div>
+  <div class="fw-section-content">
+    <h2>Rugby-Specific.<br><span>Periodized.</span><br>Results-Driven.</h2>
+    <p>Our Rugby S&C program is not a generic gym routine with a rugby label. Every session is built around the biomechanical, metabolic, and neuromuscular demands of rugby union. Whether you are a prop grinding in the scrum or a winger burning down the touchline, your training is tailored to your position, your season, and your goals.</p>
+    <button class="btn-primary" onclick="document.getElementById('positions').scrollIntoView({behavior:'smooth'})">
+      Explore Position Training
+      <svg width="18" height="18"><use href="#icon-arrow"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ===== TRAINING BLOCKS ===== -->
+<section class="section" id="blocks">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Program Structure</div>
+      <h2 class="section-title">The Four Pillars of Rugby S&C</h2>
+      <p class="section-subtitle">Our training methodology is built on four foundational blocks that every rugby athlete must master to perform at their peak.</p>
+    </div>
+    <div class="blocks-grid">
+      <div class="block-card">
+        <div class="block-icon">
+          <svg width="26" height="26"><use href="#icon-dumbbell"/></svg>
+        </div>
+        <h3>Maximal Strength</h3>
+        <p>Build the raw power needed for scrums, rucks, mauls, and dominant tackles. Focus on compound lifts with rugby-specific loading parameters.</p>
+        <div class="block-list">
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Back squat & front squat progressions</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Deadlift & Romanian deadlift</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Bench press & overhead press</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Pull-ups & weighted rows</span>
+          </div>
+        </div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">
+          <svg width="26" height="26"><use href="#icon-lightning"/></svg>
+        </div>
+        <h3>Explosive Power</h3>
+        <p>Develop the speed and explosiveness that separates good players from great ones. Plyometrics, Olympic lifts, and contrast training.</p>
+        <div class="block-list">
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Power cleans & hang cleans</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Box jumps & depth jumps</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Medicine ball throws & slams</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Contrast & complex training</span>
+          </div>
+        </div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">
+          <svg width="26" height="26"><use href="#icon-run"/></svg>
+        </div>
+        <h3>Conditioning</h3>
+        <p>Rugby is an 80-minute war. Our conditioning protocols replicate game demands with interval-based energy system development.</p>
+        <div class="block-list">
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Repeated sprint ability (RSA)</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>High-intensity interval training</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Tempo runs & aerobic base</span>
+          </div>
+          <div class="block-list-item">
+            <svg><use href="#icon-check"/></svg>
+            <span>Game-specific conditioning circuits</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POSITION-SPECIFIC TRAINING WITH IMAGES ===== -->
+<section class="section section-alt" id="positions">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Position Specific</div>
+      <h2 class="section-title">Forwards vs. Backs</h2>
+      <p class="section-subtitle">Different positions, different demands, different programs. We do not train a scrum-half like a lock.</p>
+    </div>
+    <div class="position-tabs">
+      <button class="position-tab active" data-tab="forwards">Forwards</button>
+      <button class="position-tab" data-tab="backs">Backs</button>
+    </div>
+
+    <div class="position-panel active" data-panel="forwards">
+      <div class="position-content">
+        <div class="position-visual">
+          <img src="images/6_Zimbabwe_s_Sables_Suffer_South_Africa.png" alt="Zimbabwe Sables Forwards in Action">
+        </div>
+        <div class="position-details">
+          <h3>Forwards <span>Program</span></h3>
+          <p>Forwards are the engine room. They need maximal strength, anaerobic power, and the ability to repeat high-intensity efforts in contact. Our forwards program emphasizes absolute strength, neck and shoulder durability, and scrum-specific isometric strength.</p>
+          <div class="focus-areas">
+            <div class="focus-area">
+              <h4>Strength Focus</h4>
+              <p>Absolute strength with heavy compound lifts. 3-5 rep ranges, 85-95% 1RM.</p>
+            </div>
+            <div class="focus-area">
+              <h4>Contact Prep</h4>
+              <p>Neck bridges, tackle bag work, grappling drills, and collision simulation.</p>
+            </div>
+            <div class="focus-area">
+              <h4>Scrum Power</h4>
+              <p>Isometric holds, prowler pushes, and sled drags to build scrum dominance.</p>
+            </div>
+            <div class="focus-area">
+              <h4>Repeat Efforts</h4>
+              <p>Short rest intervals between sets to simulate ruck-to-ruck demands.</p>
+            </div>
+          </div>
+          <div class="block-list">
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>Back squat: 5x5 @ 85% 1RM</span>
+            </div>
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>Deadlift: 4x4 @ 87.5% 1RM</span>
+            </div>
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>Bench press: 5x5 @ 82.5% 1RM</span>
+            </div>
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>Sled push: 6x20m, 60s rest</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="position-panel" data-panel="backs">
+      <div class="position-content">
+        <div class="position-visual">
+          <img src="images/2_Latest_News_Zimbabwe_Rugby_Union.png" alt="Zimbabwe Lady Sables in Action">
+        </div>
+        <div class="position-details">
+          <h3>Backs <span>Program</span></h3>
+          <p>Backs need speed, agility, and reactive strength. Our backs program prioritizes acceleration, change of direction, and the ability to express power at high velocities. We also build the robustness needed to survive contact.</p>
+          <div class="focus-areas">
+            <div class="focus-area">
+              <h4>Speed Focus</h4>
+              <p>Max velocity sprinting, acceleration mechanics, and flying 10s.</p>
+            </div>
+            <div class="focus-area">
+              <h4>Agility</h4>
+              <p>Change of direction drills, reactive agility, and footwork patterns.</p>
+            </div>
+            <div class="focus-area">
+              <h4>Reactive Strength</h4>
+              <p>Depth jumps, hurdle hops, and plyometric progressions.</p>
+            </div>
+            <div class="focus-area">
+              <h4>Contact Robustness</h4>
+              <p>Hamstring prehab, neck strength, and tackling mechanics.</p>
+            </div>
+          </div>
+          <div class="block-list">
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>Power clean: 5x3 @ 75% 1RM</span>
+            </div>
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>Box jump: 4x5, max height</span>
+            </div>
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>Front squat: 4x6 @ 80% 1RM</span>
+            </div>
+            <div class="block-list-item">
+              <svg><use href="#icon-check"/></svg>
+              <span>10-20-10 agility: 6 reps, 90s rest</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEEKLY SCHEDULE ===== -->
+<section class="section" id="schedule">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Weekly Structure</div>
+      <h2 class="section-title">A Week in the Life</h2>
+      <p class="section-subtitle">Our weekly microcycle is designed to balance high-intensity work with adequate recovery. Every session has a purpose.</p>
+    </div>
+    <div class="schedule-wrapper">
+      <div class="schedule-header">
+        <div class="schedule-header-cell">Session</div>
+        <div class="schedule-header-cell">Mon</div>
+        <div class="schedule-header-cell">Tue</div>
+        <div class="schedule-header-cell">Wed</div>
+        <div class="schedule-header-cell">Thu</div>
+        <div class="schedule-header-cell">Fri</div>
+        <div class="schedule-header-cell">Sat</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">Morning<br><span style="font-size:11px;color:var(--iron-text-muted);font-weight:400;">06:00</span></div>
+        <div class="schedule-cell strength">
+          <span class="cell-label strength">Strength A</span>
+          <span class="cell-desc">Lower Body</span>
+        </div>
+        <div class="schedule-cell conditioning">
+          <span class="cell-label conditioning">Conditioning</span>
+          <span class="cell-desc">Interval Runs</span>
+        </div>
+        <div class="schedule-cell strength">
+          <span class="cell-label strength">Strength B</span>
+          <span class="cell-desc">Upper Body</span>
+        </div>
+        <div class="schedule-cell conditioning">
+          <span class="cell-label conditioning">Conditioning</span>
+          <span class="cell-desc">Tempo Runs</span>
+        </div>
+        <div class="schedule-cell strength">
+          <span class="cell-label strength">Strength C</span>
+          <span class="cell-desc">Full Body</span>
+        </div>
+        <div class="schedule-cell skill">
+          <span class="cell-label skill">Skills</span>
+          <span class="cell-desc">Game Play</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">Afternoon<br><span style="font-size:11px;color:var(--iron-text-muted);font-weight:400;">16:00</span></div>
+        <div class="schedule-cell skill">
+          <span class="cell-label skill">Skills</span>
+          <span class="cell-desc">Tackle Tech</span>
+        </div>
+        <div class="schedule-cell recovery">
+          <span class="cell-label recovery">Recovery</span>
+          <span class="cell-desc">Mobility / Yoga</span>
+        </div>
+        <div class="schedule-cell skill">
+          <span class="cell-label skill">Skills</span>
+          <span class="cell-desc">Set Piece</span>
+        </div>
+        <div class="schedule-cell recovery">
+          <span class="cell-label recovery">Recovery</span>
+          <span class="cell-desc">Pool / Massage</span>
+        </div>
+        <div class="schedule-cell empty">
+          <span class="cell-desc">Rest</span>
+        </div>
+        <div class="schedule-cell empty">
+          <span class="cell-desc">Rest</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">Evening<br><span style="font-size:11px;color:var(--iron-text-muted);font-weight:400;">18:00</span></div>
+        <div class="schedule-cell recovery">
+          <span class="cell-label recovery">Recovery</span>
+          <span class="cell-desc">Foam Roll</span>
+        </div>
+        <div class="schedule-cell empty">
+          <span class="cell-desc">Rest</span>
+        </div>
+        <div class="schedule-cell recovery">
+          <span class="cell-label recovery">Recovery</span>
+          <span class="cell-desc">Contrast Bath</span>
+        </div>
+        <div class="schedule-cell empty">
+          <span class="cell-desc">Rest</span>
+        </div>
+        <div class="schedule-cell empty">
+          <span class="cell-desc">Rest</span>
+        </div>
+        <div class="schedule-cell empty">
+          <span class="cell-desc">Rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEASONAL TIMELINE ===== -->
+<section class="section section-alt" id="seasons">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Periodization</div>
+      <h2 class="section-title">The Annual Plan</h2>
+      <p class="section-subtitle">Rugby is a year-round commitment. Our periodized approach ensures you peak when it matters most — on game day.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot active"></div>
+        <div class="timeline-meta">
+          <div class="phase-label">Off-Season</div>
+          <div class="phase-duration">December — February</div>
+        </div>
+        <div class="timeline-content">
+          <h3>Build the Foundation</h3>
+          <p>This is where champions are made. The off-season is our longest training block, focused on building maximal strength, addressing movement deficiencies, and developing aerobic capacity. Volume is high, intensity is moderate-to-high. We fix injuries, build muscle, and lay the physical groundwork for the year ahead.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <div class="phase-label">Pre-Season</div>
+          <div class="phase-duration">March — May</div>
+        </div>
+        <div class="timeline-content">
+          <h3>Sharpen the Blade</h3>
+          <p>Intensity ramps up. We shift from pure strength to power and speed development. Conditioning becomes more rugby-specific with repeated sprint work and contact preparation. Position-specific demands are prioritized. By the end of pre-season, you should be physically ready to dominate from minute one.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <div class="phase-label">In-Season</div>
+          <div class="phase-duration">June — October</div>
+        </div>
+        <div class="timeline-content">
+          <h3>Maintain & Perform</h3>
+          <p>Training volume drops to manage fatigue, but intensity stays high. Two strength sessions per week maintain power and prevent strength loss. Recovery protocols are dialed in. The focus shifts to game-day performance — every gym session is designed to make you better on Saturday, not tired on Saturday.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <div class="phase-label">Transition</div>
+          <div class="phase-duration">November</div>
+        </div>
+        <div class="timeline-content">
+          <h3>Recover & Rebuild</h3>
+          <p>A short, active recovery phase. Light training, cross-training, and mental recovery. We assess the season, identify areas for improvement, and begin planning the next cycle. This phase prevents burnout and keeps the body resilient for the long term.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECOVERY PROTOCOLS ===== -->
+<section class="section" id="recovery">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Recovery</div>
+      <h2 class="section-title">The 4 Rs of Recovery</h2>
+      <p class="section-subtitle">You do not get stronger in the gym. You get stronger when you recover. Our recovery protocols are built into every program.</p>
+    </div>
+    <div class="recovery-grid">
+      <div class="recovery-card">
+        <div class="recovery-num">01</div>
+        <h3>Refuel</h3>
+        <p>Post-session nutrition within 30 minutes. Protein, carbs, and hydration protocols tailored to training demands.</p>
+      </div>
+      <div class="recovery-card">
+        <div class="recovery-num">02</div>
+        <h3>Repair</h3>
+        <p>Soft tissue work, foam rolling, and targeted mobility. Our recovery suite includes massage guns and compression.</p>
+      </div>
+      <div class="recovery-card">
+        <div class="recovery-num">03</div>
+        <h3>Restore</h3>
+        <p>Sleep optimization, contrast bathing, and active recovery sessions. Sleep is the single biggest performance enhancer.</p>
+      </div>
+      <div class="recovery-card">
+        <div class="recovery-num">04</div>
+        <h3>Regenerate</h3>
+        <p>Deload weeks, load management, and injury rehabilitation. We monitor training load to prevent overtraining.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section section-alt" id="gallery">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">In Action</div>
+      <h2 class="section-title">The Sables Legacy</h2>
+      <p class="section-subtitle">From the Rugby Africa Cup to the Rugby World Cup — Zimbabwe's Sables are writing history. Be part of the next chapter.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/5_Turning_Point_For_Rugby_In_Zimbabwe.png" alt="Zimbabwe Sables Rugby Africa Cup Champions">
+      </div>
+      <div class="gallery-item">
+        <img src="images/4_Zimbabwe_Sables_to_Face_South_Africa.png" alt="Sables Trophy Celebration">
+      </div>
+      <div class="gallery-item">
+        <img src="images/9_Zimbabwe_hold_on_to_book_first_Rugby.png" alt="Zimbabwe Sables Team Huddle">
+      </div>
+      <div class="gallery-item">
+        <img src="images/7_Zimbabwe_lady_Sables_edge_Zambians.png" alt="Zimbabwe Lady Sables">
+      </div>
+      <div class="gallery-item">
+        <img src="images/8_Zimbabwe_Sables_Set_to_Open_Rugby.png" alt="Sables Champions 2024">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION WITH IMAGE ===== -->
+<section class="cta-section" id="cta">
+  <div class="cta-bg">
+    <img src="images/6_Zimbabwe_s_Sables_Suffer_South_Africa.png" alt="Zimbabwe Sables Match Action">
+  </div>
+  <div class="cta-content">
+    <h2>Ready to Become <span>Unstoppable?</span></h2>
+    <p>Join Zimbabwe's elite rugby strength and conditioning program. Whether you are chasing a national jersey or just want to be the best player on your club team, Iron Nation is where it happens.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <button class="btn-primary" onclick="showComingSoon()">
+        Start Training Today
+        <svg width="18" height="18"><use href="#icon-arrow"/></svg>
+      </button>
+      <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Coach Ray</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark">IN</div>
+          <span>Iron Nation</span>
+        </div>
+        <p>Zimbabwe's premier strength and conditioning facility. Building champions on and off the field since day one.</p>
+        <div class="footer-contact">
+          <div><svg><use href="#icon-location"/></svg>Harare, Zimbabwe</div>
+          <div><svg><use href="#icon-phone"/></svg>+263 77 XXX XXXX</div>
+          <div><svg><use href="#icon-mail"/></svg>info@ironnation.co.zw</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#membership">Membership</a>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <a href="index.html#services">Small Group Classes</a>
+        <a href="index.html#services">Personal Training</a>
+        <a href="rugby-training.html">Rugby S&C</a>
+        <a href="index.html#membership">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Stay in the Know</h4>
+        <p style="font-size:14px;color:var(--iron-text-secondary);margin-bottom:16px;">Get training tips, class schedules, and exclusive offers delivered to your inbox.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Your email address" id="newsletterEmail">
+          <button onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>2026 Iron Nation Gym. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg width="16" height="16"><use href="#icon-instagram"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="16" height="16"><use href="#icon-facebook"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="16" height="16"><use href="#icon-twitter"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Mobile menu toggle
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Position tabs
+const tabs = document.querySelectorAll('.position-tab');
+const panels = document.querySelectorAll('.position-panel');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector('.position-panel[data-panel="' + tab.dataset.tab + '"]').classList.add('active');
+  });
+});
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+revealElements.forEach(el => observer.observe(el));
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Coming soon popup
+function showComingSoon() {
+  alert('Online signup coming soon! Contact us directly to join Iron Nation Rugby S&C today.');
+}
+
+// Newsletter
+function subscribeNewsletter() {
+  const email = document.getElementById('newsletterEmail').value;
+  if (email && email.includes('@')) {
+    alert('Thanks for subscribing! We will keep you updated on all things Iron Nation.');
+    document.getElementById('newsletterEmail').value = '';
+  } else {
+    alert('Please enter a valid email address.');
+  }
+}
+</script>
+
+</body>
+</html>

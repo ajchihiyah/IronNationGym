@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Nation Gym | Zimbabwe's Premier Strength & Conditioning Facility</title>
+<meta name="description" content="Iron Nation Gym - Zimbabwe's premier strength and conditioning facility. Led by Coach Ray Daniels (Kudzai Marozva), Strength & Conditioning Coach for Zimbabwe U17 & U20 Rugby Teams.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --iron-red: #E63946;
+  --iron-red-dark: #C1121F;
+  --iron-red-light: #FF6B6B;
+  --iron-dark: #0a0a0a;
+  --iron-gray: #111111;
+  --iron-gray-light: #1a1a1a;
+  --iron-surface: #141414;
+  --iron-border: #2a2a2a;
+  --iron-text: #f5f5f5;
+  --iron-text-secondary: #a0a0a0;
+  --iron-text-muted: #666666;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  color: var(--iron-text);
+  background: var(--iron-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+button, input, select, textarea { font: inherit; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--iron-border);
+  transition: all 0.3s ease;
+}
+.nav.scrolled { background: rgba(10,10,10,0.98); }
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; height: 72px;
+}
+.logo {
+  font-size: 22px; font-weight: 800; letter-spacing: 1.5px;
+  display: flex; align-items: center; gap: 10px; text-transform: uppercase;
+}
+.logo-mark {
+  width: 36px; height: 36px; background: var(--iron-red);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 900; font-size: 13px;
+}
+.nav-links {
+  display: flex; gap: 36px; align-items: center;
+}
+.nav-link {
+  font-size: 13px; font-weight: 500; color: var(--iron-text-secondary);
+  transition: color 0.2s ease; cursor: pointer;
+  text-transform: uppercase; letter-spacing: 1px;
+  position: relative;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--iron-red); transition: width 0.3s ease;
+}
+.nav-link:hover { color: var(--iron-text); }
+.nav-link:hover::after { width: 100%; }
+.nav-link.active { color: var(--iron-red); }
+.nav-link.active::after { width: 100%; }
+.nav-cta {
+  background: var(--iron-red); color: white; border: none;
+  padding: 10px 24px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.nav-cta:hover { background: var(--iron-red-dark); transform: translateY(-1px); }
+.mobile-menu-btn {
+  display: none; background: none; border: none; color: var(--iron-text);
+  cursor: pointer; padding: 4px;
+}
+.mobile-menu {
+  display: none; position: absolute; top: 72px; left: 0; right: 0;
+  background: var(--iron-dark); border-bottom: 1px solid var(--iron-border);
+  padding: 20px 32px; flex-direction: column; gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu .nav-link {
+  padding: 14px 0; border-bottom: 1px solid var(--iron-border); font-size: 14px;
+}
+.mobile-menu .nav-link:last-of-type { border-bottom: none; }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: var(--iron-red); color: white; border: none;
+  padding: 14px 32px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease;
+  text-transform: uppercase; letter-spacing: 1px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-primary:hover { background: var(--iron-red-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(230,57,70,0.3); }
+.btn-secondary {
+  background: transparent; color: var(--iron-text); border: 1.5px solid var(--iron-border);
+  padding: 14px 32px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.btn-secondary:hover { border-color: var(--iron-text); background: rgba(255,255,255,0.03); }
+.btn-outline {
+  background: transparent; color: var(--iron-text); border: 1.5px solid var(--iron-border);
+  padding: 12px 24px; border-radius: 6px; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s ease; width: 100%;
+}
+.btn-outline:hover { border-color: var(--iron-red); color: var(--iron-red); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding-top: 72px; position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(230,57,70,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(50,50,50,0.3) 0%, transparent 50%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-inner { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.hero-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 3px;
+  color: var(--iron-red); margin-bottom: 28px; font-weight: 600;
+}
+.hero-label::before {
+  content: ''; width: 32px; height: 2px; background: var(--iron-red);
+}
+.hero-title {
+  font-size: clamp(42px, 7vw, 80px); font-weight: 800; line-height: 1.05;
+  letter-spacing: -2px; margin-bottom: 28px; max-width: 900px;
+}
+.hero-title span { color: var(--iron-red); }
+.hero-desc {
+  font-size: 18px; color: var(--iron-text-secondary); line-height: 1.7;
+  max-width: 580px; margin-bottom: 44px; font-weight: 400;
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-stats {
+  display: flex; gap: 56px; margin-top: 72px; padding-top: 40px;
+  border-top: 1px solid var(--iron-border);
+}
+.stat-value {
+  font-size: 40px; font-weight: 800; color: var(--iron-red);
+  font-variant-numeric: tabular-nums; line-height: 1;
+}
+.stat-label { font-size: 12px; color: var(--iron-text-muted); margin-top: 8px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1280px; margin: 0 auto; padding: 100px 32px;
+}
+.section-alt {
+  background: var(--iron-gray);
+  border-top: 1px solid var(--iron-border);
+  border-bottom: 1px solid var(--iron-border);
+}
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-label {
+  font-size: 12px; color: var(--iron-red); text-transform: uppercase;
+  letter-spacing: 3px; font-weight: 600; margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.1;
+  margin-bottom: 16px; letter-spacing: -1px;
+}
+.section-subtitle {
+  font-size: 17px; color: var(--iron-text-secondary); line-height: 1.7;
+  max-width: 640px; margin: 0 auto;
+}
+
+/* ===== ABOUT ===== */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-visual {
+  position: relative; border-radius: 16px; overflow: hidden;
+  background: var(--iron-gray-light); aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--iron-border);
+}
+.about-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(230,57,70,0.2) 0%, transparent 60%);
+}
+.about-visual-inner {
+  position: relative; z-index: 2; text-align: center; padding: 48px;
+}
+.about-visual-inner .icon-large { width: 80px; height: 80px; color: var(--iron-red); margin-bottom: 20px; }
+.about-visual-inner h3 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+.about-visual-inner p { font-size: 15px; color: var(--iron-text-secondary); }
+.about-text h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
+.about-text h2 span { color: var(--iron-red); }
+.about-text p { font-size: 16px; color: var(--iron-text-secondary); line-height: 1.8; margin-bottom: 18px; }
+.about-features { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+.about-feature { display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 500; }
+.about-feature .icon-check { width: 22px; height: 22px; color: var(--iron-red); flex-shrink: 0; }
+
+/* ===== SERVICES TABS ===== */
+.services-tabs { display: flex; gap: 8px; margin-bottom: 48px; flex-wrap: wrap; justify-content: center; }
+.service-tab {
+  padding: 12px 24px; border-radius: 8px; border: 1px solid var(--iron-border);
+  background: transparent; color: var(--iron-text-secondary);
+  font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;
+}
+.service-tab:hover { color: var(--iron-text); border-color: var(--iron-text-muted); }
+.service-tab.active { background: var(--iron-red); color: white; border-color: var(--iron-red); }
+.service-panel { display: none; animation: fadeInUp 0.5s ease; }
+.service-panel.active { display: block; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.service-content { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.service-visual {
+  background: var(--iron-gray-light); border-radius: 16px; aspect-ratio: 16/10;
+  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  border: 1px solid var(--iron-border);
+}
+.service-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+}
+.service-visual-icon { position: relative; z-index: 2; color: var(--iron-red); }
+.service-visual-icon svg { width: 72px; height: 72px; }
+.service-details h3 { font-size: 32px; font-weight: 800; margin-bottom: 20px; }
+.service-details p { font-size: 16px; color: var(--iron-text-secondary); line-height: 1.8; margin-bottom: 24px; }
+.service-list { display: flex; flex-direction: column; gap: 12px; }
+.service-list-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--iron-text-secondary); }
+.service-list-item .icon-check { width: 20px; height: 20px; color: var(--iron-red); flex-shrink: 0; margin-top: 2px; }
+
+/* ===== COACH ===== */
+.coach-card {
+  background: var(--iron-gray-light); border-radius: 20px; padding: 56px;
+  display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center;
+  border: 1px solid var(--iron-border);
+}
+.coach-avatar {
+  width: 300px; height: 300px; border-radius: 16px; background: var(--iron-surface);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; border: 1px solid var(--iron-border);
+}
+.coach-avatar::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(230,57,70,0.3) 0%, transparent 50%);
+}
+.coach-avatar svg { width: 100px; height: 100px; color: var(--iron-text-muted); position: relative; z-index: 2; }
+.coach-info h3 { font-size: 13px; color: var(--iron-red); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 10px; font-weight: 600; }
+.coach-info h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; margin-bottom: 8px; }
+.coach-info .coach-role { font-size: 18px; color: var(--iron-text-secondary); margin-bottom: 24px; font-weight: 500; }
+.coach-info p { font-size: 16px; color: var(--iron-text-secondary); line-height: 1.8; margin-bottom: 16px; }
+.coach-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+.coach-badge {
+  background: rgba(230,57,70,0.12); color: var(--iron-red-light);
+  padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===== VALUES ===== */
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card {
+  background: var(--iron-gray-light); border-radius: 16px; padding: 40px;
+  border: 1px solid var(--iron-border); transition: all 0.3s ease;
+}
+.value-card:hover { border-color: var(--iron-red); transform: translateY(-4px); }
+.value-icon {
+  width: 56px; height: 56px; border-radius: 12px;
+  background: rgba(230,57,70,0.1); display: flex; align-items: center; justify-content: center;
+  color: var(--iron-red); margin-bottom: 24px;
+}
+.value-icon svg { width: 26px; height: 26px; }
+.value-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+.value-card p { font-size: 15px; color: var(--iron-text-secondary); line-height: 1.7; }
+
+/* ===== MEMBERSHIP ===== */
+.membership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.membership-card {
+  background: var(--iron-gray-light); border-radius: 16px; padding: 40px;
+  border: 1px solid var(--iron-border); transition: all 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.membership-card:hover { border-color: var(--iron-text-muted); transform: translateY(-4px); }
+.membership-card.featured { border-color: var(--iron-red); }
+.membership-card.featured::before {
+  content: 'Most Popular'; position: absolute; top: 0; right: 0;
+  background: var(--iron-red); color: white; font-size: 10px; font-weight: 700;
+  padding: 8px 18px; border-radius: 0 0 0 10px; text-transform: uppercase; letter-spacing: 1px;
+}
+.membership-card h3 { font-size: 13px; color: var(--iron-text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600; }
+.membership-price { font-size: 48px; font-weight: 800; margin-bottom: 6px; font-variant-numeric: tabular-nums; line-height: 1; }
+.membership-price span { font-size: 16px; color: var(--iron-text-muted); font-weight: 400; }
+.membership-card > p { font-size: 15px; color: var(--iron-text-secondary); margin-bottom: 32px; line-height: 1.6; }
+.membership-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+.membership-feature { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--iron-text-secondary); }
+.membership-feature .icon-check { width: 18px; height: 18px; color: var(--iron-red); flex-shrink: 0; }
+
+/* ===== FACILITY ===== */
+.facility-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.facility-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.facility-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--iron-text-secondary);
+  padding: 12px 16px; background: var(--iron-gray-light); border-radius: 8px;
+  border: 1px solid var(--iron-border);
+}
+.facility-item .icon-check { width: 16px; height: 16px; color: var(--iron-red); flex-shrink: 0; }
+.facility-visual {
+  background: var(--iron-gray-light); border-radius: 16px; aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  border: 1px solid var(--iron-border);
+}
+.facility-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(230,57,70,0.04) 12px, rgba(230,57,70,0.04) 24px);
+}
+.facility-visual svg { width: 80px; height: 80px; color: var(--iron-red); position: relative; z-index: 2; opacity: 0.7; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-header { text-align: center; margin-bottom: 56px; }
+.testimonial-carousel { position: relative; overflow: hidden; }
+.testimonial-track { display: flex; transition: transform 0.5s ease; }
+.testimonial-slide { min-width: 100%; padding: 0 12px; }
+.testimonial-card {
+  background: var(--iron-gray-light); border-radius: 16px; padding: 48px;
+  border: 1px solid var(--iron-border); text-align: center; max-width: 720px; margin: 0 auto;
+}
+.testimonial-quote {
+  font-size: 22px; font-weight: 400; line-height: 1.6; margin-bottom: 28px;
+  color: var(--iron-text); font-style: italic;
+}
+.testimonial-author { font-size: 16px; font-weight: 700; }
+.testimonial-role { font-size: 14px; color: var(--iron-text-muted); margin-top: 4px; }
+.testimonial-nav {
+  display: flex; justify-content: center; gap: 16px; margin-top: 36px;
+}
+.testimonial-nav button {
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--iron-border);
+  background: transparent; color: var(--iron-text-secondary); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
+}
+.testimonial-nav button:hover { border-color: var(--iron-text); color: var(--iron-text); }
+.testimonial-dots { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+.testimonial-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--iron-border);
+  cursor: pointer; transition: all 0.2s ease; border: none;
+}
+.testimonial-dot.active { background: var(--iron-red); }
+
+/* ===== FOOTER ===== */
+.footer {
+  border-top: 1px solid var(--iron-border); padding: 80px 32px 32px;
+}
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 56px; margin-bottom: 56px; }
+.footer-brand .logo { margin-bottom: 20px; }
+.footer-brand p { font-size: 14px; color: var(--iron-text-secondary); line-height: 1.7; margin-top: 16px; max-width: 300px; }
+.footer-brand .footer-contact { margin-top: 20px; }
+.footer-brand .footer-contact div { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--iron-text-secondary); margin-bottom: 10px; }
+.footer-brand .footer-contact svg { width: 16px; height: 16px; color: var(--iron-red); flex-shrink: 0; }
+.footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; color: var(--iron-text); font-weight: 700; }
+.footer-col a { display: block; font-size: 14px; color: var(--iron-text-secondary); margin-bottom: 14px; transition: color 0.2s; cursor: pointer; }
+.footer-col a:hover { color: var(--iron-text); }
+.footer-newsletter { display: flex; gap: 8px; margin-top: 16px; }
+.footer-newsletter input {
+  flex: 1; background: var(--iron-gray-light); border: 1px solid var(--iron-border);
+  border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--iron-text);
+  outline: none; transition: border-color 0.2s;
+}
+.footer-newsletter input:focus { border-color: var(--iron-red); }
+.footer-newsletter input::placeholder { color: var(--iron-text-muted); }
+.footer-newsletter button {
+  background: var(--iron-red); color: white; border: none; border-radius: 8px;
+  padding: 12px 20px; font-size: 12px; font-weight: 600; cursor: pointer;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.footer-newsletter button:hover { background: var(--iron-red-dark); }
+.footer-bottom {
+  border-top: 1px solid var(--iron-border); padding-top: 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: var(--iron-text-muted);
+}
+.footer-social { display: flex; gap: 16px; }
+.footer-social a {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--iron-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--iron-text-secondary); transition: all 0.2s ease;
+}
+.footer-social a:hover { border-color: var(--iron-red); color: var(--iron-red); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .about-grid, .service-content, .facility-grid { grid-template-columns: 1fr; gap: 48px; }
+  .coach-card { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .coach-avatar { width: 240px; height: 240px; margin: 0 auto; }
+  .values-grid { grid-template-columns: 1fr; }
+  .membership-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .facility-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .section { padding: 64px 20px; }
+  .hero-title { font-size: 36px; }
+  .hero-stats { gap: 28px; flex-wrap: wrap; }
+  .stat-value { font-size: 32px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .coach-card { padding: 32px 24px; }
+  .testimonial-card { padding: 32px 24px; }
+  .testimonial-quote { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG Icons (hidden, referenced via use) -->
+<svg style="display:none">
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none"><path d="M19.3027 5.9053C19.6542 5.55397 20.2247 5.55388 20.5761 5.9053C20.9273 6.25675 20.9273 6.82734 20.5761 7.17874L9.65911 18.0948C9.30773 18.4461 8.73814 18.446 8.38665 18.0948L3.42376 13.1328C3.0726 12.7814 3.07263 12.2118 3.42376 11.8604C3.77524 11.509 4.34575 11.5089 4.6972 11.8604L9.02239 16.1856L19.3027 5.9053Z" fill="currentColor"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.4387 12.814C21.788 12.4622 21.787 11.8941 21.4364 11.5436L15.8979 6.0051C15.5464 5.65363 14.9766 5.65363 14.6251 6.0051C14.2737 6.35657 14.2737 6.92642 14.6251 7.27789L18.6272 11.28H2.79998C2.30293 11.28 1.89998 11.6829 1.89998 12.18C1.89998 12.677 2.30293 13.08 2.79998 13.08H18.6382L14.6228 17.1245C14.2726 17.4772 14.2747 18.0471 14.6274 18.3973C14.9802 18.7475 15.55 18.7454 15.9002 18.3927L21.4387 12.814Z" fill="currentColor"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none"><path d="M17.9542 4.77253C18.3056 4.42106 18.8761 4.42106 19.2276 4.77253C19.579 5.12401 19.579 5.69452 19.2276 6.04597L13.2735 12.0001L19.2276 17.9542C19.5791 18.3056 19.5791 18.8761 19.2276 19.2276C18.8761 19.5791 18.3056 19.5791 17.9542 19.2276L12.0001 13.2735L6.04595 19.2276C5.69451 19.5791 5.12399 19.579 4.77252 19.2276C4.42104 18.8761 4.42104 18.3056 4.77252 17.9542L10.7266 12.0001L4.77252 6.04597C4.42104 5.6945 4.42104 5.124 4.77252 4.77253C5.12399 4.42107 5.69448 4.42106 6.04595 4.77253L12.0001 10.7266L17.9542 4.77253Z" fill="currentColor"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="currentColor"/></symbol>
+  <symbol id="icon-doc" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/></symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24" fill="none"><path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zm-7 12h14v-2c0-2.761-2.239-5-5-5H10c-2.761 0-5 2.239-5 5v2zm2-2c0-1.657 1.343-3 3-3h4c1.657 0 3 1.343 3 3H7z" fill="currentColor"/></symbol>
+  <symbol id="icon-dumbbell" viewBox="0 0 24 24" fill="none"><path d="M6 4h12v2H6V4zm0 4h12v2H6V8zm0 4h8v2H6v-2zm12 0h-2v6h2v-6zm-4 2h-2v4h2v-4zm8 0h-2v4h2v-4z" fill="currentColor"/><path d="M2 2h20v20H2V2zm2 2v16h16V4H4z" fill="currentColor"/></symbol>
+  <symbol id="icon-gym" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/><path d="M12 6a6 6 0 100 12 6 6 0 000-12zm0 10a4 4 0 110-8 4 4 0 010 8z" fill="currentColor"/></symbol>
+  <symbol id="icon-location" viewBox="0 0 24 24" fill="none"><path d="M18.9003 10.7998C18.9002 7.08572 16.2547 3.90039 11.9999 3.90039C7.74237 3.90047 5.10056 7.05052 5.10046 10.7998C5.10046 13.0829 6.29178 15.183 7.80359 16.916C9.30556 18.6377 11.0351 19.8955 11.91 20.4775C11.9433 20.4997 11.9743 20.5068 11.9999 20.5068C12.0255 20.5068 12.0564 20.4997 12.0897 20.4775C12.9646 19.8955 14.695 18.638 16.1971 16.916C17.7089 15.183 18.9003 13.0828 18.9003 10.7998ZM14.1005 10.7998C14.1004 9.6401 13.1596 8.7002 11.9999 8.7002C10.8402 8.70027 9.90037 9.64014 9.90027 10.7998C9.90027 11.9596 10.8401 12.9003 11.9999 12.9004C13.1597 12.9004 14.1005 11.9596 14.1005 10.7998ZM15.9003 10.7998C15.9003 12.9537 14.1538 14.7002 11.9999 14.7002C9.84603 14.7001 8.10046 12.9537 8.10046 10.7998C8.10057 8.64603 9.8461 6.90047 11.9999 6.90039C14.1537 6.90039 15.9002 8.64598 15.9003 10.7998ZM20.7001 10.7998C20.7001 13.7092 19.1938 16.2194 17.5536 18.0996C15.9039 19.9907 14.0277 21.3497 13.0868 21.9756C12.4242 22.4163 11.5765 22.4163 10.9139 21.9756C9.9732 21.3498 8.09699 19.9908 6.44714 18.0996C4.8069 16.2194 3.29968 13.7092 3.29968 10.7998C3.29978 6.14935 6.65779 2.09969 11.9999 2.09961C17.3448 2.09961 20.7 6.19035 20.7001 10.7998Z" fill="currentColor"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></symbol>
+  <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/></symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/></symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24" fill="none"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/></symbol>
+  <symbol id="icon-twitter" viewBox="0 0 24 24" fill="none"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" fill="currentColor"/></symbol>
+</svg>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-mark">IN</div>
+      <span>Iron Nation</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link active" href="#hero">Home</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#coach">Coach</a>
+      <a class="nav-link" href="#values">Values</a>
+      <a class="nav-link" href="#membership">Membership</a>
+      <a class="nav-link" href="#facility">Facility</a>
+      <a class="nav-link" href="#testimonials">Testimonials</a>
+      <a class="nav-link" href="#contact">Contact</a>
+      <button class="nav-cta" onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">Join Now</button>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+      <svg width="24" height="24"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a class="nav-link" href="#hero" onclick="toggleMobileMenu()">Home</a>
+    <a class="nav-link" href="#about" onclick="toggleMobileMenu()">About</a>
+    <a class="nav-link" href="#services" onclick="toggleMobileMenu()">Services</a>
+    <a class="nav-link" href="#coach" onclick="toggleMobileMenu()">Coach</a>
+    <a class="nav-link" href="#values" onclick="toggleMobileMenu()">Values</a>
+    <a class="nav-link" href="#membership" onclick="toggleMobileMenu()">Membership</a>
+    <a class="nav-link" href="#facility" onclick="toggleMobileMenu()">Facility</a>
+    <a class="nav-link" href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a>
+    <a class="nav-link" href="#contact" onclick="toggleMobileMenu()">Contact</a>
+    <button class="nav-cta" style="width:100%;margin-top:12px" onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'}); toggleMobileMenu()">Join Now</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-label">Zimbabwe's Premier Strength Destination</div>
+    <h1 class="hero-title">Built for <span>Strength.</span><br>Built for <span>Zimbabwe.</span></h1>
+    <p class="hero-desc">Delivering evidence-based, periodised performance programmes for elite athletes across rugby, basketball, tennis, athletics and hockey. Led by Ray Marozva — Strength & Conditioning Coach with 6+ years of national-level experience.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">
+        Start Your Journey
+        <svg width="18" height="18"><use href="#icon-arrow"/></svg>
+      </button>
+      <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Training</button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-value" data-count="6">0</div><div class="stat-label">Years Experience</div></div>
+      <div><div class="stat-value" data-count="5">0</div><div class="stat-label">Sports Covered</div></div>
+      <div><div class="stat-value" data-count="15">0</div><div class="stat-label">Int. Fixtures</div></div>
+      <div><div class="stat-value" data-count="24">0</div><div class="stat-label">Hour Access</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section" id="about">
+  <div class="about-grid reveal">
+    <div class="about-visual">
+      <div class="about-visual-inner">
+        <svg class="icon-large"><use href="#icon-dumbbell"/></svg>
+        <h3>Iron Nation</h3>
+        <p>Harare, Zimbabwe</p>
+      </div>
+    </div>
+    <div class="about-text">
+      <h2>Evidence-Based. <span>Periodised. Results-Driven.</span></h2>
+      <p>Ray Marozva is a Strength and Conditioning Coach with over six years' experience delivering evidence-based, periodised training programmes across rugby, basketball, tennis, athletics and hockey.</p>
+      <p>His work spans national representative teams, individual elite athletes, and grassroots development — combining sports-science principles with hands-on coaching to improve performance and reduce injury risk.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <svg class="icon-check"><use href="#icon-check"/></svg>
+          <span>6+ years elite coaching experience</span>
+        </div>
+        <div class="about-feature">
+          <svg class="icon-check"><use href="#icon-check"/></svg>
+          <span>5 sports: rugby, basketball, tennis, athletics, hockey</span>
+        </div>
+        <div class="about-feature">
+          <svg class="icon-check"><use href="#icon-check"/></svg>
+          <span>National team & Olympic athlete experience</span>
+        </div>
+        <div class="about-feature">
+          <svg class="icon-check"><use href="#icon-check"/></svg>
+          <span>Athlete profiling & injury-risk reduction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section section-alt" id="services">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Our Programs</div>
+      <h2 class="section-title">Training Programs</h2>
+      <p class="section-subtitle">From small group sessions to elite rugby conditioning — we have a program built for your goals.</p>
+    </div>
+    <div class="services-tabs">
+      <button class="service-tab active" data-tab="group">Small Group Strength</button>
+      <button class="service-tab" data-tab="personal">Personal Training</button>
+      <button class="service-tab" data-tab="rugby">Rugby S&C</button>
+    </div>
+
+    <div class="service-panel active" data-panel="group">
+      <div class="service-content">
+        <div class="service-visual">
+          <div class="service-visual-icon">
+            <svg width="72" height="72"><use href="#icon-dumbbell"/></svg>
+          </div>
+        </div>
+        <div class="service-details">
+          <h3>Small Group Strength & Conditioning</h3>
+          <p>A small group training approach with a focus on developing muscular and cardiovascular strength and endurance. Our class programming utilizes traditional and functional training methods backed by sports science.</p>
+          <div class="service-list">
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>10-person class limit for individualized attention</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Low, medium, and high intensity workouts</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Injury prevention and mobility focus</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Multiple sessions daily, 6 days a week</span>
+            </div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px" onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-panel" data-panel="personal">
+      <div class="service-content">
+        <div class="service-visual">
+          <div class="service-visual-icon">
+            <svg width="72" height="72"><use href="#icon-user"/></svg>
+          </div>
+        </div>
+        <div class="service-details">
+          <h3>Personal Training</h3>
+          <p>Iron Nation's personal trainers are extremely passionate, knowledgeable, and have experience training individuals of all ages and all levels of fitness. Each client gets a customized fitness program based on individual goals and needs.</p>
+          <div class="service-list">
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>One-on-one customized programming</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Nutrition and recovery guidance</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>4 complimentary small group sessions monthly</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>10% discount on open gym membership</span>
+            </div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-panel" data-panel="rugby">
+      <div class="service-content">
+        <div class="service-visual">
+          <div class="service-visual-icon">
+            <svg width="72" height="72"><use href="#icon-gym"/></svg>
+          </div>
+        </div>
+        <div class="service-details">
+          <h3>Rugby Strength & Conditioning</h3>
+          <p>Led by Coach Ray Daniels, our Rugby S&C program is designed specifically for the demands of the modern game. From U17 development squads to senior-level athletes, we build the strength, power, and resilience needed to dominate on the pitch.</p>
+          <div class="service-list">
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Position-specific programming (forwards vs backs)</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Pre-season, in-season, and off-season blocks</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Speed, agility, and contact preparation</span>
+            </div>
+            <div class="service-list-item">
+              <svg class="icon-check"><use href="#icon-check"/></svg>
+              <span>Recovery protocols and injury rehabilitation</span>
+            </div>
+          </div>
+          <button class="btn-primary" style="margin-top:28px" onclick="window.location.href='rugby-training.html'">View Full Program</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COACH ===== -->
+<section class="section" id="coach">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Leadership</div>
+      <h2 class="section-title">Meet The Coach</h2>
+    </div>
+    <div class="coach-card">
+      <div class="coach-avatar">
+        <svg width="100" height="100"><use href="#icon-user"/></svg>
+      </div>
+      <div class="coach-info">
+        <h3>Head Coach & Founder</h3>
+        <h2>Ray Marozva</h2>
+        <div class="coach-role">Strength & Conditioning Specialist</div>
+        <p>Ray Marozva brings over six years of elite strength and conditioning expertise to Zimbabwe. As the S&C Coach for the Zimbabwe Under-20 Rugby National Team (Junior Sables) from 2023–2026, he led physical preparation across 15 international fixtures against teams from Kenya, Tunisia, Namibia, Australia, South Africa, Fiji, Uganda, and New Zealand.</p>
+        <p>He has also served as part-time S&C coach for Olympic sprinter Ngonidzashe Makusha, applying advanced periodisation, Olympic weightlifting derivatives, and force-velocity / M.A.S. training. Ray delivers programmes for tennis athletes at All Star Sports Hub and basketball athletes at Spartans Academy (UK).</p>
+        <div class="coach-badges">
+          <span class="coach-badge">Junior Sables S&C Coach</span>
+          <span class="coach-badge">ITEC Diploma (Distinction)</span>
+          <span class="coach-badge">IUSCA S&C Certified</span>
+          <span class="coach-badge">World Rugby Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== TRACK RECORD ===== -->
+<section class="section section-alt" id="trackrecord">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Track Record</div>
+      <h2 class="section-title">Proven Results</h2>
+      <p class="section-subtitle">From national rugby teams to Olympic sprinters — a track record of delivering measurable performance gains.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-trophy"/></svg>
+        </div>
+        <h3>Junior Sables — 4th & 3rd Place</h3>
+        <p>Guided the Zimbabwe U20 Rugby National Team to 4th place (2024) and 3rd place (2025) at the NedBank Cup against senior club opposition. Led physical prep across 15 international fixtures.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-star"/></svg>
+        </div>
+        <h3>Rising Stars Hockey Champion</h3>
+        <p>Designed the performance programme for a Rising Stars Hockey athlete who won the 7s Summer Series tournament in December 2023.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-zap"/></svg>
+        </div>
+        <h3>Olympic Sprinter — Ngonidzashe Makusha</h3>
+        <p>Part-time S&C coach for Zimbabwe Olympic sprinter Ngonidzashe Makusha, applying advanced periodisation, Olympic weightlifting derivatives, and force-velocity / M.A.S. training.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-shield"/></svg>
+        </div>
+        <h3>Valley Blades Rugby Club</h3>
+        <p>Appointed Head Strength & Conditioning Coach at Valley Blades Rugby Club, a national 2027 Rugby World Cup development club, by RWC qualifying coach Ricky Chirengende.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-gym"/></svg>
+        </div>
+        <h3>Iron Nation Gym Founder</h3>
+        <p>Founded and runs Iron Nation Gym in Zimbabwe, delivering personalised strength, conditioning and rehabilitation programmes for athletes at every level.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-run"/></svg>
+        </div>
+        <h3>Multi-Sport Coverage</h3>
+        <p>Delivers S&C programmes for tennis athletes at All Star Sports Hub and basketball athletes at Spartans Academy (UK) — spanning five sports at elite and development levels.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section class="section" id="certifications">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Credentials</div>
+      <h2 class="section-title">Certifications & Education</h2>
+      <p class="section-subtitle">Grounded in internationally recognised qualifications and continuous professional development.</p>
+    </div>
+    <div class="facility-list">
+      <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>International Diploma in Fitness & Exercise Physiology — ITEC, London Wellness Academy (Distinction, 2023)</div>
+      <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Diploma in Sports Coaching & Leadership — Alison Institute, CPD UK</div>
+      <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Strength & Conditioning Certification — IUSCA</div>
+      <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>World Rugby Awareness Certification — Strength & Conditioning</div>
+      <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>World Rugby Awareness Certification — First Aid in Rugby</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUES ===== -->
+<section class="section section-alt" id="values">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Our Philosophy</div>
+      <h2 class="section-title">What We Believe In</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-star"/></svg>
+        </div>
+        <h3>Community First</h3>
+        <p>Iron Nation is more than a gym — it is a family. We lift each other up, celebrate every PR, and create an environment where everyone belongs, from beginners to elite athletes.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-shield"/></svg>
+        </div>
+        <h3>Discipline Over Motivation</h3>
+        <p>Motivation fades. Discipline endures. We teach our members to build habits that outlast temporary enthusiasm, creating sustainable fitness lifestyles that deliver real, lasting results.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="26" height="26"><use href="#icon-doc"/></svg>
+        </div>
+        <h3>Evidence-Based Training</h3>
+        <p>Every program we design is grounded in sports science and proven methodologies. We do not follow trends — we follow results. Data-driven, periodized, and personalized.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEMBERSHIP ===== -->
+<section class="section" id="membership">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Membership</div>
+      <h2 class="section-title">Membership Options</h2>
+      <p class="section-subtitle">Choose the plan that fits your training goals. All memberships include full facility access during open hours. Pricing options available on enquiry.</p>
+    </div>
+    <div class="membership-grid">
+      <div class="membership-card">
+        <h3>Open Gym</h3>
+        <div class="membership-price">Options<span>available</span></div>
+        <p>Full 24/7 access to our state-of-the-art facility. Train on your own schedule with premium equipment.</p>
+        <div class="membership-features">
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>24/7 facility access</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Locker room access</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Free WiFi & parking</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Basic orientation</div>
+        </div>
+        <button class="btn-outline" onclick="showComingSoon()">Select Plan</button>
+      </div>
+      <div class="membership-card featured">
+        <h3>Class Pass</h3>
+        <div class="membership-price">Options<span>available</span></div>
+        <p>Everything in Open Gym plus unlimited small group strength & conditioning classes led by our expert coaches.</p>
+        <div class="membership-features">
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>All Open Gym benefits</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Unlimited group classes</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Monthly body composition scan</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Nutrition consultation</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Priority class booking</div>
+        </div>
+        <button class="btn-primary" style="width:100%" onclick="showComingSoon()">Select Plan</button>
+      </div>
+      <div class="membership-card">
+        <h3>Elite Athlete</h3>
+        <div class="membership-price">Options<span>available</span></div>
+        <p>The complete package for serious athletes. Includes personal training, rugby S&C programming, and recovery.</p>
+        <div class="membership-features">
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>All Class Pass benefits</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>2 PT sessions per month</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Rugby S&C programming</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Recovery suite access</div>
+          <div class="membership-feature"><svg class="icon-check"><use href="#icon-check"/></svg>Guest passes (2/month)</div>
+        </div>
+        <button class="btn-outline" onclick="showComingSoon()">Select Plan</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACILITY ===== -->
+<section class="section section-alt" id="facility">
+  <div class="reveal">
+    <div class="section-header">
+      <div class="section-label">Our Space</div>
+      <h2 class="section-title">State of the Art Facility</h2>
+      <p class="section-subtitle">Iron Nation is known for its clean open floor plan, ample equipment, and room to work out. Our gym equipment includes:</p>
+    </div>
+    <div class="facility-grid">
+      <div class="facility-list">
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Olympic barbells & plates</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Power racks & squat stands</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Dumbbells up to 60kg</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Kettlebells up to 48kg</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Medicine balls & slam balls</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Sandbags & battle ropes</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Plyo boxes & agility ladders</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Sleds & prowlers</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Concept2 rowers & bikes</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Treadmills & stair climbers</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Resistance bands & chains</div>
+        <div class="facility-item"><svg class="icon-check"><use href="#icon-check"/></svg>Foam rollers & mobility tools</div>
+      </div>
+      <div class="facility-visual">
+        <svg width="80" height="80"><use href="#icon-dumbbell"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" id="testimonials">
+  <div class="reveal">
+    <div class="testimonials-header">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What Our Members Say</h2>
+    </div>
+    <div class="testimonial-carousel">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <p class="testimonial-quote">"Coach Ray gave me the resources I needed to achieve my athletic goals. There is guidance when I need it and room to be as creative as I want. The rugby S&C program transformed my game."</p>
+            <div class="testimonial-author">Tendai M.</div>
+            <div class="testimonial-role">U20 Rugby Player</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <p class="testimonial-quote">"I joined Iron Nation 6 months ago and I have never felt stronger. The small group classes are intense but the coaches make sure your form is perfect. Best gym in Harare, hands down."</p>
+            <div class="testimonial-author">Sarah K.</div>
+            <div class="testimonial-role">Class Pass Member</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <p class="testimonial-quote">"As a personal training client, I have seen incredible results. Coach Ray customized everything for my goals and keeps me accountable. The facility is world-class and the community is unmatched."</p>
+            <div class="testimonial-author">James N.</div>
+            <div class="testimonial-role">Elite Athlete Member</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-nav">
+      <button onclick="prevTestimonial()" aria-label="Previous">
+        <svg width="20" height="20"><use href="#icon-chevron-left"/></svg>
+      </button>
+      <button onclick="nextTestimonial()" aria-label="Next">
+        <svg width="20" height="20"><use href="#icon-chevron-right"/></svg>
+      </button>
+    </div>
+    <div class="testimonial-dots" id="testimonialDots">
+      <button class="testimonial-dot active" onclick="goToTestimonial(0)"></button>
+      <button class="testimonial-dot" onclick="goToTestimonial(1)"></button>
+      <button class="testimonial-dot" onclick="goToTestimonial(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark">IN</div>
+          <span>Iron Nation</span>
+        </div>
+        <p>Zimbabwe's premier strength and conditioning facility. Building champions on and off the field since day one.</p>
+        <div class="footer-contact">
+          <div><svg><use href="#icon-location"/></svg>Harare, Zimbabwe</div>
+          <div><svg><use href="#icon-phone"/></svg>+263 77 XXX XXXX</div>
+          <div><svg><use href="#icon-mail"/></svg>info@ironnation.co.zw</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="rugby-training.html">Rugby S&amp;C</a>
+        <a href="#membership">Membership</a>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <a href="#services">Small Group Classes</a>
+        <a href="#services">Personal Training</a>
+        <a href="rugby-training.html">Rugby S&C</a>
+        <a href="#membership">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Stay in the Know</h4>
+        <p style="font-size:14px;color:var(--iron-text-secondary);margin-bottom:16px;">Get training tips, class schedules, and exclusive offers delivered to your inbox.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Your email address" id="newsletterEmail">
+          <button onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>2026 Iron Nation Gym. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg width="16" height="16"><use href="#icon-instagram"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="16" height="16"><use href="#icon-facebook"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="16" height="16"><use href="#icon-twitter"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Mobile menu toggle
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Service tabs
+const tabs = document.querySelectorAll('.service-tab');
+const panels = document.querySelectorAll('.service-panel');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector('.service-panel[data-panel="' + tab.dataset.tab + '"]').classList.add('active');
+  });
+});
+
+// Testimonial carousel
+let currentTestimonial = 0;
+const totalTestimonials = 3;
+function updateTestimonial() {
+  document.getElementById('testimonialTrack').style.transform = 'translateX(-' + (currentTestimonial * 100) + '%)';
+  document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentTestimonial);
+  });
+}
+function nextTestimonial() {
+  currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+  updateTestimonial();
+}
+function prevTestimonial() {
+  currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+  updateTestimonial();
+}
+function goToTestimonial(index) {
+  currentTestimonial = index;
+  updateTestimonial();
+}
+
+// Auto-advance testimonials
+setInterval(nextTestimonial, 6000);
+
+// Animated counter
+function animateCounter(el) {
+  const target = parseInt(el.dataset.count);
+  const duration = 2000;
+  const start = performance.now();
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(easeOut * target);
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// Scroll reveal + counter trigger
+const revealElements = document.querySelectorAll('.reveal');
+const statValues = document.querySelectorAll('.stat-value');
+let countersTriggered = false;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      if (entry.target.querySelector('.stat-value') && !countersTriggered) {
+        statValues.forEach(animateCounter);
+        countersTriggered = true;
+      }
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => observer.observe(el));
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+
+// Coming soon popup
+function showComingSoon() {
+  alert('Online membership signup coming soon! Contact us directly to join Iron Nation today.');
+}
+
+// Newsletter
+function subscribeNewsletter() {
+  const email = document.getElementById('newsletterEmail').value;
+  if (email && email.includes('@')) {
+    alert('Thanks for subscribing! We will keep you updated on all things Iron Nation.');
+    document.getElementById('newsletterEmail').value = '';
+  } else {
+    alert('Please enter a valid email address.');
+  }
+}
+</script>
+
+</body>
+</html>
